@@ -29,11 +29,11 @@ int main() {
 	break_times.push_back(boost::posix_time::time_duration(14,05,0));
 	break_times.push_back(boost::posix_time::time_duration(14,10,0));
 	break_times.push_back(boost::posix_time::time_duration(14,55,0));
-	break_times.push_back(boost::posix_time::time_duration(01,55,0));
 
 	float time_since_last_play = 100.f;
 
-	sf::RenderWindow RenderWin(sf::VideoMode::GetDesktopMode(), "MegaGong", sf::Style::Fullscreen);
+//	sf::RenderWindow RenderWin(sf::VideoMode::GetDesktopMode(), "MegaGong", sf::Style::Fullscreen);
+	sf::RenderWindow RenderWin(sf::VideoMode::GetDesktopMode(), "MegaGong");
 
 	sf::Font MonoFont;
 	if(!MonoFont.LoadFromFile("DejaVuSansMono.ttf", 100)) {
@@ -45,7 +45,7 @@ int main() {
 	TimeText.SetPosition(RenderWin.GetWidth() / 4, RenderWin.GetHeight() / 2);
 
 	sf::SoundBuffer Ring;
-	if(!Ring.LoadFromFile("jetzt_aber_raus_hier.ogg")) {
+	if(!Ring.LoadFromFile("train.wav")) {
 		std::cerr << "Error while loading sound, aborting..." << std::endl;
 		return 1;
 	}
@@ -78,7 +78,7 @@ int main() {
 		BOOST_FOREACH(auto break_time, break_times) {
 			if (break_time.hours() == current_time.hours() && break_time.minutes() == current_time.minutes() && time_since_last_play > 60.f) {
 				RingSound.Play();
-				std::cout << "GONG! at" << current_time << std::endl;
+				std::cout << "GONG! at " << current_time << std::endl;
 				TimeText.SetColor(sf::Color::Red);
 				time_since_last_play = 0.f;
 			}

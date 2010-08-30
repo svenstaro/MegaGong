@@ -1,0 +1,14 @@
+=== What the hell it is ===
+It's a simple gong for my classes so that teachers are reminded to take time
+for much deserved breaks between classes.
+
+=== How the hell to use it ===
+Make sure you have installed SFML, Boost and a recent version of GCC.
+If you have those prerequisites, just do "make" and hope real hard.
+In case it compiled nicely, do "./MegaGong.bin" and enjoy the numbers.
+
+=== License ===
+The code is GPLv3. 
+
+=== Authors ===
+Sven-Hendrik Haase <sh@lutzhaase.com>
